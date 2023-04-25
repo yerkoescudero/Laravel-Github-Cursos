@@ -1,5 +1,7 @@
 <?php
 
+//trabajando desde la rama B
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +17,7 @@ return new class extends Migration
             $table->id(); //clave primaria
             $table->string('name'); //texto 255 tamaño
             $table->text('descripcion');
-            $table->timestamps();
+            $table->timestamps(); // Crea 2 variables
         });
     }
 
