@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id(); //PK
             $table->string('name'); //255 Max
             $table->text('descripcion');
-            $table->text('Categoria');
+            $table->text('categoria');
             $table->timestamps(); 
         });
     }
