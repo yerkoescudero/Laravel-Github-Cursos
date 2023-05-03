@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Creacion Cursos')
+@section('title', 'Edicion de curso'. $curso->name)
 
 {{-- o asi
 @section('title')
@@ -8,14 +8,15 @@ home
 @endsection --}}
 
 @section('content')
-    <h1>En esta pagina se podra crear un curso</h1>
-    <form action="{{route('cursos.store')}}" method="POST">
+    <h1>En esta pagina se podras editar un curso</h1>
+    <form action="{{route('cursos.update',$curso)}}" method="post">
 
         @csrf
+        @method('put')
 
         <label>
             Nombre: <br>
-            <input type="text" name="name" value="{{old('name')}}">
+            <input type="text" name="name" value="{{old('name', $curso->name)}}">
         </label>
 
         @error('name')
@@ -27,7 +28,7 @@ home
         <br>
         <label>
             Descripcion: <br>
-            <textarea name="descripcion" rows="5">{{old('descripcion')}}</textarea>
+            <textarea name="descripcion" rows="5">{{old('descripcion', $curso->descripcion)}}</textarea>
         </label>
 
         @error('descripcion')
@@ -39,9 +40,8 @@ home
         <br>
             <label>
                 Categoria: <br>
-                <input type="text" name="categoria" value="{{old('categoria')}}">
+                <input type="text" name="categoria" value="{{old('name', $curso->categoria)}}">
         </label>
-        <br>  
 
         @error('categoria')
         <br>
@@ -49,6 +49,7 @@ home
         <br>
         @enderror
 
-        <button type="submit">Enviar Formulario</button>
+        <br>  
+        <button type="submit">Actualizar Formulario</button>
     </form>
 @endsection

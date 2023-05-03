@@ -11,4 +11,13 @@ class Curso extends Model
 
     //protected $table = "users"; para administrar bajo un modelo otra tabla
 
+    //protected $fillable = ['name,', 'descripcion', 'categoria'];
+
+    protected $guarded = ['status'];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }
