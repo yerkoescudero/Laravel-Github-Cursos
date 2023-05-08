@@ -3,7 +3,8 @@
 use App\Http\Controllers\CursoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ContactanosController;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,12 @@ Route::controller(CursoController::class)->group(function(){
 
     Route::view('nosotros','nosotros')->name('nosotros');
 
+   
+
 });
+
+Route::get('contactanos',[ContactanosController::class,'index'])->name("contactanos.index");
+Route::post('contactanos',[ContactanosController::class,'store'])->name("contactanos.store");
 
 
 
