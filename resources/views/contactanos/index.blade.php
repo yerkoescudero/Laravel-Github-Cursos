@@ -21,6 +21,10 @@ home
         </label>
         <br>
 
+        @error('nombre')
+            <strong>{{$message}}</strong> 
+        @enderror
+        <br>
         <label for="correo">
             Correo:
             <br>
@@ -28,6 +32,10 @@ home
         </label>
         <br>
 
+        @error('correo')
+        <strong>{{$message}}</strong> 
+        @enderror
+        <br>
         <label for="mensaje">
             Mensaje:
             <br>
@@ -35,6 +43,15 @@ home
         </label>
         <br>
 
+        @error('mensaje')
+        <strong>{{$message}}</strong> 
+        @enderror
+        <br>
         <button type="submit">Enviar mensaje</button>
     </form>
+
+    @if (session('info'))
+        <script>alert("{{session('info')}}")</script>
+    @endif
+
 @endsection

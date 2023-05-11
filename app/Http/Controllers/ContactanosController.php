@@ -17,10 +17,17 @@ class ContactanosController extends Controller
 
     public function store(Request $request){
 
+        $request->validate([
+            'nombre' => 'required',
+            'correo' => 'required|email',
+            'mensaje' => 'required',
+        ]);
+
+        //se manda información al constructor de mailable
         $correo = new ContactanosMailable($request->all());
         Mail::to('yerko.andres.e@gmail.com')->send($correo);
     
-        return "Mensaje enviado";
+        return redirect()->route('contactanos.index')->with('info','Mensaje enviado');
     }
     
    
